@@ -1,4 +1,3 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -20,7 +19,7 @@ async function getSingleFile(absolutePath) {
         const text = await fs.promises.readFile(absolutePath, 'utf-8')
         return extractLinks(text);  
     } catch (err) {
-        return chalk.red(err);
+        return err;
     }
 }
 
@@ -34,7 +33,7 @@ async function getMultipleFile(absolutePath) {
         }))
         return result;
     } catch (err) {
-        return chalk.red(err);
+        return err;
     }
 }
 
